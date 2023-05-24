@@ -1,0 +1,34 @@
+# Definimos las constantes de costo fijo y costo variable
+PREP_COST = 2.0
+SMALL_COST = 5.0
+MEDIUM_COST = 7.0
+LARGE_COST = 9.0
+
+# Definimos el costo adicional por cada ingrediente extra
+INGREDIENT_COST = 1.0
+
+# Creamos una función para calcular el precio de una pizza
+def calculate_pizza_price(size, num_extras):
+    # Calculamos el costo variable en función del tamaño de la pizza
+    if size == "pequeña":
+        size_cost = SMALL_COST
+    elif size == "mediana":
+        size_cost = MEDIUM_COST
+    elif size == "grande":
+        size_cost = LARGE_COST
+    else:
+        print("Tamaño de pizza inválido")
+        return None
+
+    # Calculamos el costo total sumando el costo fijo, el costo variable y el costo adicional de ingredientes
+    total_cost = PREP_COST + size_cost + (INGREDIENT_COST * num_extras)
+
+    # Calculamos el precio de venta como 1.5 veces el costo total
+    sale_price = 1.5 * total_cost
+
+    # Retornamos el precio de venta
+    return sale_price
+
+# Ejemplo de uso
+precio = calculate_pizza_price("mediana", 2)
+print("El precio de venta de la pizza es:", precio)
